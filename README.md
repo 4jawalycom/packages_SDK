@@ -1,148 +1,79 @@
-# 4Jawaly SDKs
+# SMS4Jawaly for Lumen
 
-This repository contains official SDKs for the 4Jawaly SMS Gateway service in multiple programming languages.
+مكتبة SMS4Jawaly لإطار العمل Lumen
 
-## Available SDKs
-
-### Java SDK
-Located in the [`java`](./java) directory.
-- Features parallel SMS sending with automatic batch processing
-- Built with modern Java HttpClient
-- Comprehensive error handling
-- [View Java SDK Documentation](./java/README.md)
-
-### Python SDK
-Located in the [`python`](./python) directory.
-- Supports parallel sending and batch processing
-- Built with Python's asyncio for efficient processing
-- Comprehensive error handling
-- [View Python SDK Documentation](./python/README.md)
-
-### Ruby SDK
-Located in the [`ruby`](./ruby) directory.
-- Supports parallel sending and batch processing
-- Built with Ruby's sms4jawaly gem
-- Comprehensive error handling
-- [View Ruby SDK Documentation](./ruby/README.md)
-
-## Getting Started
-
-Each SDK has its own documentation and installation instructions. Please refer to the respective README files in each directory.
-
-## Support
-
-For support, you can:
-- Visit our website: [https://4jawaly.com](https://4jawaly.com)
-- Contact us through email: info@4jawaly.com
-- Open an issue in this repository
-
-## Contributing
-
-We welcome contributions! Please feel free to submit a Pull Request.
-
-## License
-
-All SDKs are released under the MIT License. See the LICENSE file in each SDK directory for more information.
-
-## SDK Examples
-
-This repository also contains example code for using 4Jawaly SMS services in different programming languages.
-
-### Java Implementation
-Please check the [Java example](java/temp_dir) for implementation details.
-
-### Ruby Implementation
-
-#### Installation (التثبيت) (Installation) (इंस्टालेशन) (انسٹالیشن) (Installation)
+## التثبيت | Installation
 
 ```bash
-gem install sms4jawaly
+composer require sms4jawaly/lumen
 ```
 
-#### Example Usage (طريقة الاستخدام) (Exemple d'utilisation) (उपयोग का उदाहरण) (استعمال کی مثال)
+## الإعداد | Configuration
 
-Check our [Ruby example](ruby/example) for complete implementation.
+أضف بيانات الاعتماد الخاصة بك في ملف `.env`:
 
-#### Arabic (العربية)
-1. قم بتثبيت المكتبة باستخدام الأمر: `gem install sms4jawaly`
-2. قم بتحميل المثال من مجلد ruby/example
-3. قم بتحديث مفاتيح API (api_key و api_secret) في الكود
-4. للحصول على مفاتيح API، يرجى مشاهدة [الشرح المفصل](https://youtu.be/oTB6hLbJXPU?si=_Bn0Zi-VxULnz-r2)
+Add your credentials to your `.env` file:
 
-#### English
-1. Install the library using: `gem install sms4jawaly`
-2. Download the example from ruby/example directory
-3. Update the API keys (api_key and api_secret) in the code
-4. To obtain API keys, please watch the [detailed explanation](https://youtu.be/oTB6hLbJXPU?si=_Bn0Zi-VxULnz-r2)
-
-#### Français
-1. Installez la bibliothèque avec: `gem install sms4jawaly`
-2. Téléchargez l'exemple depuis le répertoire ruby/example
-3. Mettez à jour les clés API (api_key et api_secret) dans le code
-4. Pour obtenir les clés API, regardez [l'explication détaillée](https://youtu.be/oTB6hLbJXPU?si=_Bn0Zi-VxULnz-r2)
-
-#### Hindi (हिंदी)
-1. लाइब्रेरी इंस्टॉल करें: `gem install sms4jawaly`
-2. ruby/example फ़ोल्डर से उदाहरण डाउनलोड करें
-3. कोड में API कुंजियों (api_key और api_secret) को अपडेट करें
-4. API कुंजियां प्राप्त करने के लिए, कृपया [विस्तृत व्याख्या](https://youtu.be/oTB6hLbJXPU?si=_Bn0Zi-VxULnz-r2) देखें
-
-#### Urdu (اردو)
-1. لائبریری انسٹال کریں: `gem install sms4jawaly`
-2. ruby/example فولڈر سے مثال ڈاؤن لوڈ کریں
-3. کوڈ میں API کلیدیں (api_key اور api_secret) اپ ڈیٹ کریں
-4. API کلیدیں حاصل کرنے کے لیے، براہ کرم [تفصیلی وضاحت](https://youtu.be/oTB6hLbJXPU?si=_Bn0Zi-VxULnz-r2) دیکھیں
-
-#### Library Documentation (توثيق المكتبة) (Documentation de la bibliothèque) (लाइब्रेरी डॉक्यूमेंटेशन) (لائبریری دستاویزات)
-
-For more details, visit:
-- RubyGems: [https://rubygems.org/gems/sms4jawaly](https://rubygems.org/gems/sms4jawaly)
-- GitHub Example: [https://github.com/4jawalycom/packages_SDK/ruby/example](https://github.com/4jawalycom/packages_SDK/ruby/example)
-
-### Python Implementation
-
-#### Installation (التثبيت) (Installation) (इंस्टालेशन) (انسٹالیشن) (Installation)
-
-```bash
-pip install sms4jawaly-py
+```env
+SMS4JAWALY_API_KEY=your_api_key
+SMS4JAWALY_API_SECRET=your_api_secret
 ```
 
-#### Example Usage (طريقة الاستخدام) (Exemple d'utilisation) (उपयोग का उदाहरण) (استعمال کی مثال)
+قم بإضافة التكوين التالي في ملف `config/services.php`:
 
-Check our [Python example](python/example) for complete implementation.
+Add the following configuration to your `config/services.php`:
 
-#### Arabic (العربية)
-1. قم بتثبيت المكتبة باستخدام الأمر: `pip install sms4jawaly-py`
-2. قم بتحميل المثال من مجلد python/example
-3. قم بتحديث مفاتيح API (api_key و api_secret) في الكود
-4. للحصول على مفاتيح API، يرجى مشاهدة [الشرح المفصل](https://youtu.be/oTB6hLbJXPU?si=_Bn0Zi-VxULnz-r2)
+```php
+'sms4jawaly' => [
+    'api_key' => env('SMS4JAWALY_API_KEY'),
+    'api_secret' => env('SMS4JAWALY_API_SECRET'),
+],
+```
 
-#### English
-1. Install the library using: `pip install sms4jawaly-py`
-2. Download the example from python/example directory
-3. Update the API keys (api_key and api_secret) in the code
-4. To obtain API keys, please watch the [detailed explanation](https://youtu.be/oTB6hLbJXPU?si=_Bn0Zi-VxULnz-r2)
+قم بتسجيل مزود الخدمة في ملف `bootstrap/app.php`:
 
-#### Français
-1. Installez la bibliothèque avec: `pip install sms4jawaly-py`
-2. Téléchargez l'exemple depuis le répertoire python/example
-3. Mettez à jour les clés API (api_key et api_secret) dans le code
-4. Pour obtenir les clés API, regardez [l'explication détaillée](https://youtu.be/oTB6hLbJXPU?si=_Bn0Zi-VxULnz-r2)
+Register the service provider in your `bootstrap/app.php`:
 
-#### Hindi (हिंदी)
-1. लाइब्रेरी इंस्टॉल करें: `pip install sms4jawaly-py`
-2. python/example फ़ोल्डर से उदाहरण डाउनलोड करें
-3. कोड में API कुंजियों (api_key और api_secret) को अपडेट करें
-4. API कुंजियां प्राप्त करने के लिए, कृपया [विस्तृत व्याख्या](https://youtu.be/oTB6hLbJXPU?si=_Bn0Zi-VxULnz-r2) देखें
+```php
+$app->register(Sms4jawaly\Lumen\Sms4jawalyServiceProvider::class);
+```
 
-#### Urdu (اردو)
-1. لائبریری انسٹال کریں: `pip install sms4jawaly-py`
-2. python/example فولڈر سے مثال ڈاؤن لوڈ کریں
-3. کوڈ میں API کلیدیں (api_key اور api_secret) اپ ڈیٹ کریں
-4. API کلیدیں حاصل کرنے کے لیے، براہ کرم [تفصیلی وضاحت](https://youtu.be/oTB6hLbJXPU?si=_Bn0Zi-VxULnz-r2) دیکھیں
+## الاستخدام | Usage
 
-#### Library Documentation (توثيق المكتبة) (Documentation de la bibliothèque) (लाइब्रेरी डॉक्यूमेंटेशन) (لائبریری دستاویزات)
+### إرسال رسالة SMS | Sending an SMS
 
-For more details, visit:
-- PyPI: [https://pypi.org/project/sms4jawaly-py/](https://pypi.org/project/sms4jawaly-py/)
-- GitHub Example: [https://github.com/4jawalycom/packages_SDK/python/example](https://github.com/4jawalycom/packages_SDK/python/example)
+```php
+use Sms4jawaly\Lumen\Gateway;
+
+$sms = app(Gateway::class);
+
+$response = $sms->sendSms(
+    'رسالة تجريبية من فورجوالي', // نص الرسالة | Message text
+    ['966500000000'],            // أرقام المستلمين | Recipient numbers
+    '4jawaly'                    // اسم المرسل | Sender name
+);
+```
+
+### جلب الرصيد | Get Balance
+
+```php
+$balance = $sms->getBalance();
+```
+
+### جلب أسماء المرسلين | Get Sender Names
+
+```php
+$senders = $sms->getSenders();
+```
+
+## المساهمة | Contributing
+
+نرحب بمساهماتكم! يرجى إرسال pull request.
+
+Contributions are welcome! Please submit a pull request.
+
+## الترخيص | License
+
+هذه المكتبة مرخصة تحت رخصة MIT.
+
+This library is licensed under the MIT License.
