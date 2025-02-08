@@ -29,5 +29,12 @@
                 "Sms4jawaly\\Lumen\\Sms4jawalyServiceProvider"
             ]
         }
-    }
+    },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/4jawalycom/packages_SDK",
+            "directory": "lumen"
+        }
+    ]
 }
