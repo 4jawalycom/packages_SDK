@@ -1,1 +1,0 @@
-sms4jawaly-py>=1.0.0
