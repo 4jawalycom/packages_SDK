@@ -6,67 +6,99 @@ use Sms4jawaly\Lumen\Gateway;
 
 // Initialize the client with your API credentials
 // قم بتهيئة العميل باستخدام بيانات اعتماد API الخاصة بك
-// Initialisez le client avec vos identifiants API
-// अपने API क्रेडेंशियल्स के साथ क्लाइंट को इनिशियलाइज़ करें
-// اپنے API کریڈنشلز کے ساتھ کلائنٹ کو شروع کریں
 $client = new Gateway(
-    'your_api_key',      // Replace with your API key / استبدل بمفتاح API الخاص بك
-    'your_api_secret'    // Replace with your API secret / استبدل بسر API الخاص بك
+    'your_api_key',
+    'your_api_secret'
 );
 
-// Get sender names / جلب أسماء المرسلين / Obtenir les noms d'expéditeur
+// With custom options / مع خيارات مخصصة
+// $client = new Gateway('your_api_key', 'your_api_secret', [
+//     'timeout'  => 60,
+//     'base_url' => 'https://api-sms.4jawaly.com/api/v1',
+// ]);
+
+// ──────────────────────────────────────────
+// Get sender names / جلب أسماء المرسلين
+// ──────────────────────────────────────────
 echo "\nGetting sender names / جلب أسماء المرسلين:\n";
 $senders = $client->getSenders();
 print_r($senders);
 
-// Get balance / جلب الرصيد / Obtenir le solde
+// ──────────────────────────────────────────
+// Get balance / جلب الرصيد
+// ──────────────────────────────────────────
 echo "\nGetting balance / جلب الرصيد:\n";
 $balance = $client->getBalance();
 print_r($balance);
 
-// Send single SMS / إرسال رسالة واحدة / Envoyer un SMS unique
+// ──────────────────────────────────────────
+// Send single SMS / إرسال رسالة واحدة
+// ──────────────────────────────────────────
 echo "\nSending single SMS / إرسال رسالة واحدة:\n";
 $response = $client->sendSms(
-    'Test message from 4jawaly / رسالة تجريبية من فورجوالي',  // Message text / نص الرسالة
-    ['966500000000'],                                         // Recipients list / قائمة المستلمين
-    '4jawaly'                                                // Sender name / اسم المرسل
+    'Test message from 4jawaly / رسالة تجريبية من فورجوالي',
+    ['966500000000'],
+    '4jawaly'
 );
 print_r($response);
 
-// Send bulk SMS / إرسال رسائل متعددة / Envoyer des SMS en masse
+// ──────────────────────────────────────────
+// Send bulk SMS / إرسال رسائل متعددة
+// ──────────────────────────────────────────
 echo "\nSending bulk SMS / إرسال رسائل متعددة:\n";
 $bulkResponse = $client->sendSms(
-    'First bulk message / الرسالة الأولى',                   // Message text / نص الرسالة
-    ['966500000001', '966500000002'],                       // Recipients list / قائمة المستلمين
-    '4jawaly'                                               // Sender name / اسم المرسل
+    'First bulk message / الرسالة الأولى',
+    ['966500000001', '966500000002'],
+    '4jawaly'
 );
 print_r($bulkResponse);
 
-// Example of how to use in a Laravel/Lumen application
-// مثال على كيفية الاستخدام في تطبيق Laravel/Lumen
-echo "\nExample usage in Laravel/Lumen application / مثال على الاستخدام في تطبيق Laravel/Lumen:\n";
-echo "
-// In your controller:
+// ──────────────────────────────────────────
+// Send batch (multiple messages) / إرسال دفعة
+// ──────────────────────────────────────────
+echo "\nSending batch SMS / إرسال دفعة رسائل:\n";
+$batchResponse = $client->sendBatch([
+    [
+        'text'    => 'رسالة أولى',
+        'numbers' => ['966500000001'],
+        'sender'  => '4jawaly',
+    ],
+    [
+        'text'    => 'رسالة ثانية',
+        'numbers' => ['966500000002', '966500000003'],
+        'sender'  => '4jawaly',
+    ],
+]);
+print_r($batchResponse);
+
+// ──────────────────────────────────────────
+// Usage in Laravel/Lumen controller
+// استخدام في Laravel/Lumen controller
+// ──────────────────────────────────────────
+echo "\n--- Example controller usage ---\n";
+echo <<<'EXAMPLE'
+
 use Sms4jawaly\Lumen\Gateway;
 
 class SmsController extends Controller
 {
-    private \$sms;
+    private $sms;
 
-    public function __construct(Gateway \$sms)
+    public function __construct(Gateway $sms)
     {
-        \$this->sms = \$sms;
+        $this->sms = $sms;
     }
 
     public function sendMessage()
     {
-        \$response = \$this->sms->sendSms(
+        $response = $this->sms->sendSms(
             'Your verification code is: 1234',
             ['966500000000'],
             '4jawaly'
         );
 
-        return response()->json(\$response);
+        return response()->json($response);
     }
 }
-";
+
+EXAMPLE;

@@ -1,8 +1,10 @@
 {
     "name": "sms4jawaly/lumen",
-    "description": "SMS4Jawaly API integration for Lumen",
+    "description": "SMS & WhatsApp 4Jawaly API integration for Lumen & Laravel",
     "type": "library",
     "license": "MIT",
+    "keywords": ["sms", "whatsapp", "4jawaly", "lumen", "laravel", "api", "sms-gateway", "saudi-arabia"],
+    "homepage": "https://github.com/4jawalycom/packages_SDK",
     "autoload": {
         "psr-4": {
             "Sms4jawaly\\Lumen\\": "src/"
@@ -15,13 +17,14 @@
         }
     ],
     "minimum-stability": "stable",
+    "prefer-stable": true,
     "require": {
         "php": "^7.3|^8.0",
         "guzzlehttp/guzzle": "^7.0",
-        "illuminate/support": "^8.0|^9.0|^10.0"
+        "illuminate/support": "^8.0|^9.0|^10.0|^11.0|^12.0"
     },
     "require-dev": {
-        "phpunit/phpunit": "^9.0"
+        "phpunit/phpunit": "^9.0|^10.0|^11.0"
     },
     "extra": {
         "laravel": {
